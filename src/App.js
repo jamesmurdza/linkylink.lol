@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaGoogle, FaApple, FaMicrosoft, FaYahoo, FaArrowLeft } from 'react-icons/fa'
+import { FaGoogle, FaApple, FaMicrosoft, FaYahoo, FaArrowLeft, FaGithub } from 'react-icons/fa'
 import { IoMdCalendar } from 'react-icons/io'
 import { RiCalendarEventFill } from 'react-icons/ri'
 import { IconContext } from 'react-icons'
@@ -60,7 +60,17 @@ const HomeButton = ({ onClick }) => (
 
 const Header = () => (
   <div className="flex justify-center items-center w-full h-20">
-    <h1 className="text-4xl font-bold text-white uppercase">📆 Linky Link</h1>
+    <h1 className="text-4xl font-bold text-white uppercase">
+      📆 Linky Link
+    </h1>
+  </div>
+)
+
+const Footer = () => (
+  <div className="mb-2">
+    <a href="https://gitwit.dev" target="_blank" rel="noopener noreferrer" className="text-white flex items-center text-sm justify-center opacity-75 hover:opacity-100">
+      <img src="https://framerusercontent.com/images/SmLDF79Mns070VHglJVQyuQ1A.png" alt="Gitwit" className="h-8 mr-2" /> MADE WITH GITWIT
+    </a>
   </div>
 )
 
@@ -90,14 +100,13 @@ export default function App() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-br from-gray-900 to-gray-700 p-4">
-            {showLinks && (
+    <div className="flex flex-col justify-between items-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-700 p-4">
+      <Header />
+      {showLinks && (
         <div className="flex flex-col items-center mt-2">
           <BackButton onClick={resetForm} text="BACK" />
         </div>
-      )
-      }
-      <Header />
+      )}
       {showForm && (
         <div className="flex flex-col items-center mb-4 square">
           <h1 className="font-semibold text-lg mb-5 text-gray-300 uppercase rainbow-text">
@@ -150,6 +159,8 @@ export default function App() {
           )}
         </div>
       )}
+      <Footer />
     </div>
   )
 }
+
